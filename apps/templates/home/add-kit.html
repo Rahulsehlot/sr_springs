@@ -1,194 +1,479 @@
-{% extends "layouts/base.html" %}
-
-{% block title %} Add User {% endblock %}
+{% extends "layouts/base.html" %} {% block title %} Add User {% endblock %}
 
 <!-- Specific Page CSS goes HERE  -->
-{% block stylesheets %}{% endblock stylesheets %}
-
-{% block content %}
+{% block stylesheets %}{% endblock stylesheets %} {% block content %}
 
 <div class="content">
-    <div class="page-inner">
-        <div class="page-header">
-            <h4 class="page-title">ADD KITS</h4>
-            <ul class="breadcrumbs">
-                <li class="nav-home">
-                    <a href="/">
-                        <i class="flaticon-home"></i>
-                    </a>
-                </li>
-                <li class="separator">
-                    <i class="flaticon-right-arrow"></i>
-                </li>
-                <li class="nav-item">
-                    <a href="/offer-addoffer">KITS</a>
-                </li>
-                <li class="separator">
-                    <i class="flaticon-right-arrow"></i>
-                </li>
-                <li class="nav-item">
-                    <a href="/offer-offerlist">Add kit</a>
-                </li>
-            </ul>
-        </div>
-        <form action="" method="POST">
-            <div class="content">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <div class="card-header">Kit Details</div>
-                            <div class="card-body">
-                                <div class="col-sm-12">
-                                    <div class="row">
-                                        <div class="form-group col-sm-8">
-                                            <label>Kit Description</label>
-                                            <textarea rows="2" name="kit_description" class="form-control"></textarea>
-                                        </div>
-                                    </div>
-        
-                                    <div class="row">
-                                        <div class="form-group col-sm-4">
-                                            <label>Kit No</label>
-                                            <input name="kit_no" type="text" maxlength="200" autocomplete="new-password"
-                                                class="form-control">
-                                        </div>
-                                        <div class="form-group col-sm-4">
-                                            <label>HSN Code</label>
-                                            <input name="hsn_code" type="text" maxlength="200" autocomplete="new-password"
-                                                class="form-control">
-                                        </div>
-                                    </div>
-        
-                                    <div class="row">
-                                        <div class="form-group col-sm-8">
-                                            <label>Total No. of lubrication points</label>
-                                            <textarea rows="2" name="lubricant_points" class="form-control"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="content">
-                <div class="page-section">
-                    <div class="card card-fluid">
-                        <div class="card-body">
-                            <table style="width: 100%;" id="emptbl">
-                                <thead>
-                                    <th>Product<span style="color: red;">*</span></th>
-                                    <th>
-                                        <a class="btn btn-secondary active" onclick="myButtonClick()">
-                                            <i class="fa fa-plus"></i>
-                                        </a>
-                                    </th>
-                                </thead>
-                                <tbody style="padding: 5%;">
-                                    <tr>
-                                        <td style="width: 400px;">
-                                            <input class="text-input" name="kit_products" autocomplete="new-password">
-                                        </td>
-                                        <td style="width: 5%;"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <hr class="mb-4">
-                        <div style="text-align: center;">
-                            <button id="btnSave" type="submit" class="btn btn-primary btn-sm">Save</button>
-                            &nbsp;
-                            <a routerlink="/Kit-masters" queryparamshandling="preserve" class="btn btn-danger btn-sm"
-                                href="/Kit-masters">Cancel</a>
-                        </div>
-                        <br>
-                        <div class="card-footer"></div>
-                    </div>
-                </div>
-            </div>
-        </form>
+  <div class="page-inner">
+    <div class="page-header">
+      <h4 class="page-title">CREATE ORDERS</h4><br>
+      
+
+      <!-- <ul class="breadcrumbs">
+        <li class="nav-home">
+          <a href="/">
+            <i class="flaticon-home"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="flaticon-right-arrow"></i>
+        </li>
+        <li class="nav-item">
+          <a href="/offer-addoffer">KITS</a>
+        </li>
+        <li class="separator">
+          <i class="flaticon-right-arrow"></i>
+        </li>
+        <li class="nav-item">
+          <a href="/offer-offerlist">Add kit</a>
+        </li>
+      </ul> -->
     </div>
+    <h2 class="page-header">TAX INVOICE</h2>
+
+    <script src="../path/to/flowbite/dist/datepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/datepicker.min.js"></script>
+    <form>
+      <div class="grid gap-6 mb-6 md:grid-cols-2">
+        <div>
+          <label
+            for="phone"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Customer Name *
+          </label>
+
+          <button
+            id="dropdownSearchButton"
+            data-dropdown-toggle="dropdownSearch"
+            data-dropdown-placement="bottom"
+            class="hover:bg-grey-800 focus:ring-4 focus:outline-none focus:ring-grey-300 font-medium rounded-lg text-s px-4 text-center inline-flex items-center dark:hover:bg-grey-700 dark:focus:ring-grey-800 border border-black h-10 block w-full"
+            type="button"
+          >
+            Select Name
+            <svg
+              class="w-4 h-4 ml-2"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </button>
+          <!-- Dropdown menu -->
+          <div
+            id="dropdownSearch"
+            class="z-10 hidden bg-white rounded-lg shadow dark:bg-gray-700 block w-auto"
+          >
+            <div class="p-3 w-full">
+              <label for="input-group-search" class="sr-only">Search</label>
+              <div class="relative">
+                <div
+                  class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none"
+                >
+                  <svg
+                    class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                    aria-hidden="true"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </div>
+                <input
+                  type="text"
+                  id="input-group-search"
+                  class="block w-full px-8 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                />
+              </div>
+            </div>
+            <ul
+              class="h-48 px-3 pb-3 w-auto overflow-y-auto text-sm text-gray-700 dark:text-gray-200"
+              aria-labelledby="dropdownSearchButton"
+            >
+              <li>
+                <div
+                  class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
+                >
+                  <label
+                    for="checkbox-item-11"
+                    class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
+                    >Bonnie Green</label
+                  >
+                </div>
+              </li>
+              <li>
+                <div
+                  class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
+                >
+                  <label
+                    for="checkbox-item-12"
+                    class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
+                    >Jese Leos</label
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <label
+            for="phone"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Phone number *</label
+          >
+          <input
+            type="tel"
+            id="phone"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="123-45-678"
+            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+            required
+          />
+        </div>
+        <div>
+          <label
+            for="Address"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Address</label
+          >
+          <input
+            type="text"
+            id="Address"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Address"
+          />
+        </div>
+        <div>
+          <label
+            for="visitors"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Date</label
+          >
+
+          <div class="relative max-w-l">
+            <div
+              class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+            >
+              <svg
+                aria-hidden="true"
+                class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            <input
+              datepicker
+              datepicker-autohide
+              type="text"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Select date"
+            />
+          </div>
+        </div>
+
+
+        <div class="flex gap-4">
+        <div class="mb-6">
+            <label
+              for="po_numnber"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >PO Numnber</label
+            >
+            <input
+              type="text"
+              id="po_numnber"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="PO Number"
+            />
+          </div>
+
+          <div class="mb-6">
+            <label
+              for="dc_number"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >DC Numnber</label
+            >
+            <input
+              type="text"
+              id="dc_number"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="DC Number"
+            />
+          </div>
+
+          <div class="mb-6">
+            <label
+              for="e-way_bill"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >E-Way Bill</label
+            >
+            <input
+              type="text"
+              id="e-way_bill"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="E-Way Bill"
+            />
+          </div>
+        </div>
+
+
+        <div class="mb-6">
+          <label
+            for="email"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Email address</label
+          >
+          <input
+            type="email"
+            id="email"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="***@gamil.com"
+            required
+          />
+        </div>
+        <div class="mb-6">
+          <label
+            for="GST_Number"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >GST Number</label
+          >
+          <input
+            type="text"
+            id="GST"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="GST"
+            required
+          />
+        </div>
+        <div class="mb-6">
+          <label
+            for="Product"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Product</label
+          >
+          <input
+            type="text"
+            id="Product"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Product"
+            required
+          />
+        </div>
+        <div class="mb-6">
+          <label
+            for="quantity"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Quantity</label
+          >
+          <input
+            type="text"
+            id="quantity"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Quantity"
+            pattern="[0-9]+"
+            required
+          />
+        </div>
+        <div class="mb-6">
+          <label
+            for="price"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Price</label
+          >
+          <input
+            type="text"
+            id="price"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Price"
+            pattern="[0-9,.]++"
+            required
+          />
+        </div>
+        <div class="mb-6">
+            <label
+              for="discount"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Discount</label
+            >
+            <input
+              type="text"
+              id="discount"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Discount"
+              pattern="[0-9]++"
+              required
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              for="frieght"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Freight</label
+            >
+            <input
+              type="text"
+              id="frieght"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Frieght"
+              pattern="[0-9]++"
+              required
+            />
+          </div>
+  
+
+        <div class="mb-6">
+          <label
+            for="cgst"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >CGST</label
+          >
+          <div class="flex gap-4">
+            <input
+              type="text"
+              id="cgst_percentage"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="CGST%"
+              pattern="[0-9]++"
+              required
+            />
+            <input
+              type="text"
+              id="cgst"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 form-control"
+              placeholder="CGST"
+              pattern="[0-9]++"
+              required
+              disabled
+            />
+          </div>
+        </div>
+
+        <div class="mb-6">
+            <label
+              for="sgst"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >SGST</label
+            >
+            <div class="flex gap-4">
+              <input
+                type="text"
+                id="sgst_percentage"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="SGST%"
+                pattern="[0-9]++"
+                required
+              />
+              <input
+                type="text"
+                id="sgst"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 form-control"
+                placeholder="SGST"
+                pattern="[0-9]++"
+                required
+                disabled
+              />
+            </div>
+            
+        </div>
+        
+        <div class="mb-6">
+            <label
+              for="amount"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Amount</label
+            >
+            <input
+              type="text"
+              id="amount"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 form-control"
+              placeholder="Amount"
+              disabled
+            />
+          </div>
+  
+          <br>
+ 
+      <div class="flex items-start mb-6">
+        <div class="flex items-center h-5">
+          <input
+            id="remember"
+            type="checkbox"
+            value=""
+            class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-black-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-black-600 dark:ring-offset-gray-800"
+            required
+          />
+        </div>
+        <label
+          for="remember"
+          class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >Confirm Order
+</label
+        >
+      </div>
+      <button
+        type="submit"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
 </div>
-{% endblock content %}
-
-{% block javascripts %}
-<script>
-    let lineNo = 1;
-
-    function myButtonClick() {
-        console.log("clask")
-        var table = document.getElementById('emptbl');
-        var rowCount = table.rows.length;
-        console.log(rowCount)
-        var cellCount = table.rows[0].cells.length;
-        markup = $('<tr> <td style="width: 400px;"> <input class="text-input" name="kit_products" autocomplete="new-password"> </td> <td _ngcontent-yms-c134="" style="width: 5%;"> <a _ngcontent-yms-c134="" class="btn btn-secondary active" onclick="SomeDeleteRowFunction(this)"> <i _ngcontent-yms-c134="" class="fas fa-trash-alt"> </i> </a> </td> </tr>')
-        tableBody = $("table tbody");
-        tableBody.append(markup);
-        lineNo++;
-    }
-
-    $(document).ready(function () {
-        $("#btnSave").click(function () {
-            var inputData = "";
-
-            $(".text-input").each(function () {
-                var inputValue = $(this).val();
-                inputData += "" + inputValue + "\n";
-            });
-            console.log(inputData);
-
-        });
-    });
-
-    function SomeDeleteRowFunction(btndel) {
-        if (typeof (btndel) == "object") {
-            $(btndel).closest("tr").remove();
-        }
-        else {
-            return false;
-        }
-    }
-
-
-</script>
+{% endblock content %} {% block javascripts %}
 
 <style>
-    th,
-    td {
-        border: 1px solid black;
-        padding: 5px;
-    }
+  th,
+  td {
+    border: 1px solid black;
+    padding: 5px;
+  }
 
-    .container[_ngcontent-owj-c93] {
-        width: 100%
-    }
+  .container[_ngcontent-owj-c93] {
+    width: 100%;
+  }
 </style>
 
 <style>
-    .bs-example {
-        margin: 20px;
-    }
+  .bs-example {
+    margin: 20px;
+  }
 
-    .text-input {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
+  .text-input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
 
-    }
+  .form-control {
+    border-color: #0f0e0f;
+    border-width: 1px;
+  }
 
-    .form-control {
-        border-color: #0f0e0f;
-        border-width: 1px;
-    }
-
-    .form-control:focus {
-        border-color: #ff80ff;
-        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(255, 100, 255, 0.5);
-    }
+  .form-control:focus {
+    border-color: #ff80ff;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset,
+      0px 0px 8px rgba(255, 100, 255, 0.5);
+  }
 </style>
 {% endblock javascripts %}

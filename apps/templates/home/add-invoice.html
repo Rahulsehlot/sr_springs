@@ -10,7 +10,7 @@
     <div class="page-inner">
         <div class="page-header">
             <h4 class="page-title">INVOICE</h4>
-            <ul class="breadcrumbs">
+            <!-- <ul class="breadcrumbs">
                 <li class="nav-home">
                     <a href="/">
                         <i class="flaticon-home"></i>
@@ -28,7 +28,7 @@
                 <li class="nav-item">
                     <a href="/offer-offerlist">Add Invoice</a>
                 </li>
-            </ul>
+            </ul> -->
         </div>
 
         <section class="content">
@@ -52,13 +52,12 @@
                                         <div class="input-group date">
                                             <input type="date" bsdatepicker="" autocomplete="off"
                                                 class="form-control pull-right ng-untouched ng-pristine ng-invalid">
-
                                         </div>
                                     </div>
-                                    <div class="form-group col-sm-3">
+                                    <div class="form-group col-sm-3 color">
                                         <label>Supplier Code</label>
                                         <input type="text" maxlength="200" autocomplete="off"
-                                            class="form-control ng-untouched ng-pristine ng-valid">
+                                            class="form-control ng-untouched ng-pristine ng-valid" disabled>
                                     </div>
                                     <div class="form-group col-sm-3">
                                         <label>Invoice Type<span style="color: red;">*</span></label>
@@ -72,30 +71,14 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="form-group col-sm-4">
-                                        <label>OC Type<span style="color: red;">*</span></label>
-                                        <select id="oc_name_change" class="form-control ng-dirty ng-valid ng-touched">
-                                            <option value="">Select OC Type</option>
-                                            <option value="OC">OC</option>
-                                            <option value="None_OC">None OC</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-sm-4" id="buyers_name">
-
-                                    </div>
-                                    <div class="form-group col-sm-4" id="oc_number">
-
-                                    </div>
-                                </div>
-                                <div class="row">
                                     <div class="form-group col-sm-6">
-                                        <label>Details of Receipt (Billing Address)</label>
+                                        <label>Billing Address</label>
                                         <textarea class="form-control ng-untouched ng-pristine ng-valid"></textarea>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-sm-6">
-                                        <label>Details of Receipt (Delivery Address) </label>
+                                        <label>Delivery Address</label>
                                         <textarea class="form-control ng-untouched ng-pristine ng-valid"></textarea>
                                     </div>
                                 </div>
@@ -125,37 +108,12 @@
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-sm-3">
-                                        <label>Buyer's State Code</label>
-                                        <input type="text" maxlength="200" autocomplete="off"
-                                            class="form-control ng-untouched ng-pristine ng-valid">
-                                    </div>
-                                    <div class="form-group col-sm-3">
-                                        <label>Buyer's Place of Supply</label>
-                                        <input type="text" maxlength="200" autocomplete="off"
-                                            class="form-control ng-untouched ng-pristine ng-valid">
-                                    </div>
-                                    <div class="form-group col-sm-3">
                                         <label>Transporter Details /LR No /Date</label>
                                         <input type="text" maxlength="200" autocomplete="off"
                                             class="form-control ng-untouched ng-pristine ng-valid">
                                     </div>
                                     <div class="form-group col-sm-3" id="exportFields">
 
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-sm-4">
-                                        <label>Payment Terms</label>
-                                        <input type="text" maxlength="200" autocomplete="off"
-                                            class="form-control ng-untouched ng-pristine ng-valid">
-                                    </div>
-                                    <div class="form-group col-sm-3">
-                                        <label>Kit / Spare<span style="color: red;">*</span></label>
-                                        <select name="offer_type" class="form-control offertype_id">
-                                            <option value="None" selected>Add offer</option>
-                                            <option value="Spares">Spares</option>
-                                            <option value="Kits">Kits</option>
-                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -169,95 +127,65 @@
         <section class="content">
             <div class="page-section">
                 <div class="card card-fluid">
-                    <div class="card-body">
-                        <table style="width: 100%;" id="product-table">
-
-
-                        </table>
-                    </div>
-                </div>
-        </section>
-
-
-        <section class="content">
-            <div class="page-section">
-                <div class="card card-fluid">
                     <div class="card-header"> Claculations </div>
                     <div class="card-body">
 
                         <link rel="stylesheet"
                             href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
 
-                        <table class="table table-dark table-striped">
-                            <tr>
+                        <table class="table table-striped">
+                            <tr >
                                 <th>Gross Amount:</th>
                                 <td></td>
-                                <td><input type="number"
-                                        style="height: 50px !important; background-color: transparent !important; color: white !important;"
-                                        class="form-control" id="grossAmount" step="0.01" disabled></td>
+                                <td><input type="text"
+                                        style="height: 50px !important;  "
+                                        class="form-control " id="grossAmount" step="0.01" ></td>
                             </tr>
-                            <tr>
+                            <tr >
                                 <th>Discount Type:</th>
                                 <td>
                                     <input type="radio" name="discountType" value="percentage" checked>Percentage
                                     <input type="radio" name="discountType" value="value">Value
                                 </td>
-                                <td><input type="number" style="height: 50px !important;" class="form-control"
+                                <td><input type="text" style="height: 50px !important;" class="form-control"
                                         id="discountValue" step="0.01" required></td>
                             </tr>
-                            <tr>
+                            <tr >
                                 <th>Total Assessable Value:</th>
                                 <td></td>
-                                <td><input type="number"
-                                        style="height: 50px !important; background-color: transparent !important; color: white !important;"
+                                <td><input type="text"
+                                        style="height: 50px "
                                         class="form-control" id="assessableValue" disabled></td>
                             </tr>
-                            <tr>
+                            <tr >
                                 <th>P & F %:</th>
                                 <td><input type="number" style="height: 50px !important;" class="form-control"
                                         id="pfPercentage" step="0.01" required></td>
                                 <td><input type="number"
-                                        style="height: 50px !important; background-color: transparent !important; color: white !important;"
+                                        style="height: 50px !important; background-color: transparent !important; "
                                         class="form-control" id="pfValue" disabled></td>
                             </tr>
-                            <tr>
+                            <tr >
                                 <th>Freight:</th>
                                 <td><input type="number" style="height: 50px !important;" class="form-control"
                                         id="freightValue" step="0.01" required></td>
                                 <td><input type="number"
-                                        style="height: 50px !important; background-color: transparent !important; color: white !important;"
+                                        style="height: 50px !important; background-color: transparent !important; "
                                         class="form-control" id="totalFreight" disabled></td>
                             </tr>
-                            <tr>
-                                <th>TCS %:</th>
-                                <td><input type="number" style="height: 50px !important;" class="form-control"
-                                        id="tcsPercentage" step="0.01" required></td>
-                                <td><input type="number" class="form-control"
-                                        style="height: 50px !important; background-color: transparent !important; color: white !important;"
-                                        id="tcsValue" disabled></td>
-                            </tr>
-                            <tr>
+                            <tr >
                                 <th>GST %:</th>
                                 <td><input type="number" class="form-control" style="height: 50px !important;"
                                         id="gstPercentage" step="0.01" required></td>
                                 <td><input type="number"
-                                        style="height: 50px !important; background-color: transparent !important; color: white !important;"
+                                        style="height: 50px !important; background-color: transparent !important; "
                                         class="form-control" id="gstValue" disabled></td>
                             </tr>
-                            <tr>
-                                <th>Round Off Type:</th>
-                                <td>
-                                    <input type="radio" name="roundOffType" value="addition" checked>Addition
-                                    <input type="radio" name="roundOffType" value="subtraction">Subtraction
-                                </td>
-                                <td><input type="number" class="form-control" style="height: 50px !important;"
-                                        id="roundOffValue" step="0.01" required></td>
-                            </tr>
-                            <tr>
-                                <th>Grand Total:</th>
+                            <tr class="border-b-2 border-black">
+                                <th >Grand Total:</th>
                                 <td></td>
                                 <td><input type="number" class="form-control"
-                                        style="height: 50px !important; background-color: transparent !important; color: white !important;"
+                                        style="height: 50px !important; background-color: transparent !important;"
                                         id="grandTotal" disabled></td>
                             </tr>
                         </table>
@@ -273,9 +201,9 @@
 
 
     <div style="text-align: center;">
-        <button id="btnSave" type="submit" class="btn btn-primary btn-sm" fdprocessedid="11p0ic">Save</button>
+        <button id="btnSave" type="submit" class="btn bg-black hover:bg-gray-700 text-white  btn-m mb-4" fdprocessedid="11p0ic">Save</button>
         &nbsp;
-        <a routerlink="/invoice-invoiceslist" queryparamshandling="preserve" class="btn btn-danger btn-sm"
+        <a routerlink="/invoice-invoiceslist" queryparamshandling="preserve" class="btn btn-danger btn-m mb-4"
             href="/invoice-invoiceslist">Cancel </a>
     </div>
 </div>
